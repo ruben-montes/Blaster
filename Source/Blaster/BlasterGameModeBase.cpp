@@ -1,9 +1,9 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "BlasterGameMode.h"
+#include "BlasterGameModeBase.h"
 #include "UObject/ConstructorHelpers.h"
 
-ABlasterGameMode::ABlasterGameMode()
+ABlasterGameModeBase::ABlasterGameModeBase()
 {
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Blueprints/Character/BP_BlasterCharacter"));

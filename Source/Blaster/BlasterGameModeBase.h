@@ -4,15 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "BlasterGameMode.generated.h"
+#include "BlasterGameModeBase.generated.h"
 
 UCLASS(minimalapi)
-class ABlasterGameMode : public AGameModeBase
+class ABlasterGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 
 public:
-	ABlasterGameMode();
+	ABlasterGameModeBase();
 };
 
 
