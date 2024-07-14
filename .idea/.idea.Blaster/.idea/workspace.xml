@@ -10,7 +10,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="344799f6-383e-4c34-b242-5d8cb7a0bf24" name="Changes" comment="">
+    <list default="true" id="344799f6-383e-4c34-b242-5d8cb7a0bf24" name="Changes" comment="66. Rotating Running Animations">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -479,7 +479,35 @@
       <workItem from="1720535612637" duration="2008000" />
       <workItem from="1720622069035" duration="1848000" />
       <workItem from="1720714140536" duration="10000" />
+      <workItem from="1720782614709" duration="6824000" />
+      <workItem from="1720859626199" duration="6000" />
+      <workItem from="1720958739835" duration="238000" />
     </task>
+    <task id="LOCAL-00001" summary="63. Rotate Root Bone">
+      <option name="closed" value="true" />
+      <created>1720790310276</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1720790310276</updated>
+    </task>
+    <task id="LOCAL-00002" summary="65. Crouch Unequipped">
+      <option name="closed" value="true" />
+      <created>1720791886222</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1720791886222</updated>
+    </task>
+    <task id="LOCAL-00003" summary="66. Rotating Running Animations">
+      <option name="closed" value="true" />
+      <created>1720792902987</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720792902987</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,5 +517,9 @@
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="63. Rotate Root Bone" />
+    <MESSAGE value="65. Crouch Unequipped" />
+    <MESSAGE value="66. Rotating Running Animations" />
+    <option name="LAST_COMMIT_MESSAGE" value="66. Rotating Running Animations" />
   </component>
 </project>
