@@ -4,6 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "Weapon.generated.h"
 
+class ACasing;
 class UWidgetComponent;
 
 UENUM(BlueprintType)
@@ -69,6 +70,9 @@ private:
 
 	UFUNCTION()
 	void OnRep_WeaponState();
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<ACasing> CasingClass;
 
 public:
 	void SetWeaponState(EWeaponState State);
