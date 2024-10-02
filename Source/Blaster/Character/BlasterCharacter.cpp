@@ -1,7 +1,7 @@
-
 #include "BlasterCharacter.h"
 
 #include "Blaster/BlasterComponents/CombatComponent.h"
+#include "Blaster/PlayerController/BlasterPlayerController.h"
 #include "Blaster/Weapon/Weapon.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -43,17 +43,29 @@ ABlasterCharacter::ABlasterCharacter()
 	MinNetUpdateFrequency = 33.f;
 }
 
+void ABlasterCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+
+	BlasterPlayerController = Cast<ABlasterPlayerController>(Controller);
+	if (BlasterPlayerController)
+	{
+		BlasterPlayerController->SetHUDHealth(Health, MaxHealth);
+	}
+}
+
 void ABlasterCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME_CONDITION(ABlasterCharacter, OverlappingWeapon, COND_OwnerOnly);
+	DOREPLIFETIME(ABlasterCharacter, Health);
 }
 
 void ABlasterCharacter::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
-	
+
 	if (Combat)
 	{
 		Combat->Character = this;
@@ -62,7 +74,10 @@ void ABlasterCharacter::PostInitializeComponents()
 
 void ABlasterCharacter::PlayFireMontage(bool bAiming)
 {
-	if (Combat == nullptr || Combat->EquippedWeapon == nullptr) return;
+	if (Combat == nullptr || Combat->EquippedWeapon == nullptr)
+	{
+		return;
+	}
 
 	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 	if (AnimInstance && FireWeaponMontage)
@@ -72,11 +87,6 @@ void ABlasterCharacter::PlayFireMontage(bool bAiming)
 		SectionName = bAiming ? FName("RifleAim") : FName("RifleHip");
 		AnimInstance->Montage_JumpToSection(SectionName);
 	}
-}
-
-void ABlasterCharacter::BeginPlay()
-{
-	Super::BeginPlay();
 }
 
 void ABlasterCharacter::Tick(float DeltaTime)
@@ -189,8 +199,11 @@ void ABlasterCharacter::AimButtonReleased()
 
 void ABlasterCharacter::AimOffset(float DeltaTime)
 {
-	if (Combat && Combat->EquippedWeapon == nullptr ) return;
-	
+	if (Combat && Combat->EquippedWeapon == nullptr)
+	{
+		return;
+	}
+
 	FVector Velocity = GetVelocity();
 	Velocity.Z = 0.f;
 	float Speed = Velocity.Size();
@@ -203,12 +216,12 @@ void ABlasterCharacter::AimOffset(float DeltaTime)
 		AO_Yaw = DeltaAimRotation.Yaw;
 		if (TurningInPlace == ETurningInPlace::ETIP_NotTurning)
 		{
-			InterpAO_Yaw = AO_Yaw;			
+			InterpAO_Yaw = AO_Yaw;
 		}
 		bUseControllerRotationYaw = false;
 		TurnInPlace(DeltaTime);
 	}
-	
+
 	if (Speed > 0.f || bIsInAir) // running or jumping
 	{
 		StartingAimRotation = FRotator(0.f, GetBaseAimRotation().Yaw, 0.f);
@@ -265,7 +278,7 @@ void ABlasterCharacter::TurnInPlace(float DeltaTime)
 	{
 		TurningInPlace = ETurningInPlace::ETIP_Left;
 	}
-	
+
 	if (TurningInPlace != ETurningInPlace::ETIP_NotTurning)
 	{
 		InterpAO_Yaw = FMath::FInterpTo(InterpAO_Yaw, 0.f, DeltaTime, 4.f);
@@ -276,6 +289,10 @@ void ABlasterCharacter::TurnInPlace(float DeltaTime)
 			StartingAimRotation = FRotator(0.f, GetBaseAimRotation().Yaw, 0.f);
 		}
 	}
+}
+
+void ABlasterCharacter::OnRep_Health()
+{
 }
 
 void ABlasterCharacter::SetOverlappingWeapon(AWeapon* Weapon)
@@ -306,7 +323,10 @@ bool ABlasterCharacter::IsAiming()
 
 AWeapon* ABlasterCharacter::GetEquippedWeapon()
 {
-	if (Combat == nullptr) return nullptr;
+	if (Combat == nullptr)
+	{
+		return nullptr;
+	}
 	return Combat->EquippedWeapon;
 }
 

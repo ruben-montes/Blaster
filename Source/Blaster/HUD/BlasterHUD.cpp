@@ -2,6 +2,9 @@
 
 #include "BlasterHUD.h"
 
+#include "CharacterOverlay.h"
+#include "Blueprint/UserWidget.h"
+
 void ABlasterHUD::DrawHUD()
 {
 	Super::DrawHUD();
@@ -39,6 +42,23 @@ void ABlasterHUD::DrawHUD()
 			FVector2D Spread(0.f, -SpreadScaled);
 			DrawCrosshair(HUDPackage.CrosshairsTop, ViewportCenter, Spread);
 		}
+	}
+}
+
+void ABlasterHUD::BeginPlay()
+{
+	Super::BeginPlay();
+
+	AddCharacterOverlay();
+}
+
+void ABlasterHUD::AddCharacterOverlay()
+{
+	APlayerController* PlayerController =  GetOwningPlayerController();
+	if (PlayerController && CharacterOverlayClass)
+	{
+		CharacterOverlay = CreateWidget<UCharacterOverlay>(PlayerController, CharacterOverlayClass);
+		CharacterOverlay->AddToViewport();
 	}
 }
 
