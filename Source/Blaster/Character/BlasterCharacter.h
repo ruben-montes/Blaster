@@ -24,6 +24,8 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual void PostInitializeComponents() override;
 	void PlayFireMontage(bool bAiming);
+	void PlayHitReactMontage();
+	void UpdateHUDHealth();
 
 protected:
 	virtual void BeginPlay() override;
@@ -40,6 +42,10 @@ protected:
 	virtual void Jump() override;
 	void FireButtonPressed();
 	void FireButtonReleased();
+
+	UFUNCTION()
+	void ReceiveDamage(AActor* DamageActor, float Damage, const UDamageType* DamageType,
+	                   AController* InstigatorController, AActor* DamageCauser);
 
 private:
 	UPROPERTY(VisibleAnywhere, Category = Camera)
@@ -73,6 +79,9 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	UAnimMontage* FireWeaponMontage;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	UAnimMontage* HitReactMontage;
 
 	/**
 	 * Player Health
