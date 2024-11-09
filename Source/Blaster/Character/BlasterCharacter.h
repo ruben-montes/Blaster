@@ -26,6 +26,7 @@ public:
 	void PlayFireMontage(bool bAiming);
 	void PlayHitReactMontage();
 	void UpdateHUDHealth();
+	void Eliminated();
 
 protected:
 	virtual void BeginPlay() override;

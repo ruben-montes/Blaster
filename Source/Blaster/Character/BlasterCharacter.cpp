@@ -11,6 +11,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Net/UnrealNetwork.h"
+#include <Blaster/GameMode/BlasterGameMode.h>
 
 ABlasterCharacter::ABlasterCharacter()
 {
@@ -293,6 +294,18 @@ void ABlasterCharacter::ReceiveDamage(AActor* DamageActor, float Damage, const U
 	Health = FMath::Clamp(Health - Damage, 0.f, 100.f);
 	UpdateHUDHealth();
 	PlayHitReactMontage();
+
+	if (Health == 0.f)
+	{
+		ABlasterGameMode* BlasterGameMode = GetWorld()->GetAuthGameMode<ABlasterGameMode>();
+		if (BlasterGameMode)
+		{
+			BlasterPlayerController = BlasterPlayerController == nullptr ? Cast<ABlasterPlayerController>(Controller) : BlasterPlayerController;
+			ABlasterPlayerController* AttackerController = Cast<ABlasterPlayerController>(InstigatorController);
+			BlasterGameMode->PlayerEliminated(this, BlasterPlayerController, AttackerController);
+		}
+	}
+	
 }
 
 void ABlasterCharacter::TurnInPlace(float DeltaTime)
@@ -333,6 +346,11 @@ void ABlasterCharacter::UpdateHUDHealth()
 	{
 		BlasterPlayerController->SetHUDHealth(Health, MaxHealth);
 	}
+}
+
+void ABlasterCharacter::Eliminated()
+{
+
 }
 
 void ABlasterCharacter::SetOverlappingWeapon(AWeapon* Weapon)
