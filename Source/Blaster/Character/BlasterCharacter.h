@@ -24,9 +24,12 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	virtual void PostInitializeComponents() override;
 	void PlayFireMontage(bool bAiming);
+	void PlayElimMontage();
 	void PlayHitReactMontage();
 	void UpdateHUDHealth();
-	void Eliminated();
+
+	UFUNCTION(NetMulticast, Reliable)
+	void Elim();
 
 protected:
 	virtual void BeginPlay() override;
@@ -84,6 +87,10 @@ private:
 	UPROPERTY(EditAnywhere, Category = "Combat")
 	UAnimMontage* HitReactMontage;
 
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	UAnimMontage* ElimMontage;
+
+
 	/**
 	 * Player Health
 	 */
@@ -99,6 +106,8 @@ private:
 
 	ABlasterPlayerController* BlasterPlayerController;
 
+	bool bElimmed = false;
+
 public:
 	void SetOverlappingWeapon(AWeapon* Weapon);
 	bool IsWeaponEquipped();
@@ -107,4 +116,5 @@ public:
 	FORCEINLINE float GetAO_Pitch() const { return AO_Pitch; }
 	AWeapon* GetEquippedWeapon();
 	FORCEINLINE ETurningInPlace GetTurningInPlace() const { return TurningInPlace; }
+	FORCEINLINE bool IsElimmed() const { return bElimmed; }
 };
