@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Blaster/BlasterTypes/TurningInPlace.h"
+#include "Components/TimelineComponent.h"
 #include "GameFramework/Character.h"
 #include "BlasterCharacter.generated.h"
 
@@ -110,11 +111,34 @@ private:
 	bool bElimmed = false;
 
 	FTimerHandle ElimTimer;
+	
+	UPROPERTY(EditDefaultsOnly)
+	float ElimDelay = 3.f;
 
 	void ElimTimerFinished();
 
-	UPROPERTY(EditDefaultsOnly)
-	float ElimDelay = 3.f;
+	/**
+	 * Dissolve Effect
+	 */
+
+	UPROPERTY(VisibleAnywhere)
+	UTimelineComponent* DissolveTimeline;
+	FOnTimelineFloat DissolveTrack;
+
+	UPROPERTY(EditAnywhere)
+	UCurveFloat* DissolveCurve;
+
+	UFUNCTION()
+	void UpdateDissolveMaterial(float DissolveValue);
+	void StartDissolve();
+
+	// Dynamic Instance that we can change at runtime
+	UPROPERTY(VisibleAnywhere, Category="Elim")
+	UMaterialInstanceDynamic* DynamicDissolveMaterialInstance;
+
+	// Material Instance set on the Blueprint used with the dynamic material instance
+	UPROPERTY(EditAnywhere, Category="Elim")
+	UMaterialInstance* DissolveMaterialInstance;
 
 public:
 	void SetOverlappingWeapon(AWeapon* Weapon);
