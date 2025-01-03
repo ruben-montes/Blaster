@@ -1,6 +1,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Blaster/BlasterTypes/CombatState.h"
+#include "Blaster/Weapon/WeaponTypes.h"
 #include "Components/ActorComponent.h"
 #include "CombatComponent.generated.h"
 
@@ -22,6 +24,7 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	void EquipWeapon(AWeapon* WeaponToEquip);
+	void Reload();
 
 protected:
 	virtual void BeginPlay() override;
@@ -45,6 +48,12 @@ protected:
 
 	void SetHUDCrosshairs(float DeltaTime);
 
+	UFUNCTION(Server, Reliable)
+	void ServerReload();
+
+	// This will handle things related with reloading in server and client
+	void HandleReload();
+
 private:
 	ABlasterCharacter* Character;
 	ABlasterPlayerController* Controller;
@@ -64,15 +73,37 @@ private:
 
 	bool bFireButtonPressed;
 
+	bool CanFire();
+
+	bool bCanFire = true;
+
 	/**
 	 * HUD and crosshairs
 	 */
 	
 	float CrosshairVelocityFactor;
 	float CrosshairInAirFactor;
-	
-public:	
-	
 
-		
+	/**
+	 * Carried Ammo
+	 */
+	UPROPERTY(ReplicatedUsing = OnRep_CarriedAmmo)
+	int32 CarriedAmmo;
+
+	UFUNCTION()
+	void OnRep_CarriedAmmo();
+
+	TMap<EWeaponType, int32> CarriedAmmoMap;
+
+	UPROPERTY(EditAnywhere)
+	int32 StartingARAmmo = 30;
+	
+	void InitializeCarriedAmmo();
+
+	UPROPERTY(ReplicatedUsing=OnRep_CombatState)
+	ECombatState CombatState = ECombatState::ECS_Unoccupied;
+
+	UFUNCTION()
+	void OnRep_CombatState();
+	
 };

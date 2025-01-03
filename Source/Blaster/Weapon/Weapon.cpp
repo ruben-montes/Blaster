@@ -99,7 +99,7 @@ void AWeapon::SetHUDAmmo()
 
 void AWeapon::SpendRound()
 {
-	--Ammo;
+	Ammo = FMath::Clamp(Ammo -1, 0, MagCapacity);
 	SetHUDAmmo();
 }
 
@@ -173,28 +173,31 @@ void AWeapon::ShowPickupWidget(bool bShowWidget)
 
 void AWeapon::Fire(const FVector& HitTarget)
 {
-	if (FireAnimation)
+	if (!IsEmpty())
 	{
-		WeaponMesh->PlayAnimation(FireAnimation, false);
-	}
-	if (CasingClass)
-	{
-		const USkeletalMeshSocket* AmmoEjectSocket = WeaponMesh->GetSocketByName(FName("AmmoEject"));
-		if (AmmoEjectSocket)
+		if (FireAnimation)
 		{
-			FTransform SocketTransform = AmmoEjectSocket->GetSocketTransform(GetWeaponMesh());
-			UWorld* World = GetWorld();
-			if (World)
+			WeaponMesh->PlayAnimation(FireAnimation, false);
+		}
+		if (CasingClass)
+		{
+			const USkeletalMeshSocket* AmmoEjectSocket = WeaponMesh->GetSocketByName(FName("AmmoEject"));
+			if (AmmoEjectSocket)
 			{
-				World->SpawnActor<ACasing>(
-					CasingClass,
-					SocketTransform.GetLocation(),
-					SocketTransform.GetRotation().Rotator()
-				);
+				FTransform SocketTransform = AmmoEjectSocket->GetSocketTransform(GetWeaponMesh());
+				UWorld* World = GetWorld();
+				if (World)
+				{
+					World->SpawnActor<ACasing>(
+						CasingClass,
+						SocketTransform.GetLocation(),
+						SocketTransform.GetRotation().Rotator()
+					);
+				}
 			}
 		}
+		SpendRound();
 	}
-	SpendRound();
 }
 
 void AWeapon::Dropped()
@@ -207,3 +210,7 @@ void AWeapon::Dropped()
 	BlasterOwnerController = nullptr;
 }
 
+bool AWeapon::IsEmpty()
+{
+	return Ammo <= 0;
+}

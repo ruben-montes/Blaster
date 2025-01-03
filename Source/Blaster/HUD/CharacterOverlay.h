@@ -22,5 +22,8 @@ public:
 	class UTextBlock* HealthText;
 
 	UPROPERTY(meta = (BindWidget))
-	class UTextBlock* WeaponAmmoAmount; 
+	class UTextBlock* WeaponAmmoAmount;
+
+	UPROPERTY(meta = (BindWidget))
+	class UTextBlock* CarriedAmmoAmount;
 };
