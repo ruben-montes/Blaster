@@ -7,6 +7,7 @@
 #include "GameFramework/Character.h"
 #include "BlasterCharacter.generated.h"
 
+class ABlasterPlayerState;
 class ABlasterPlayerController;
 class UCombatComponent;
 class AWeapon;
@@ -31,6 +32,9 @@ public:
 	void PlayHitReactMontage();
 	void UpdateHUDHealth();
 	void Elim();
+
+	// Poll for any relevant classes and initialize our HUD
+	void PollInit();
 
 	UFUNCTION(NetMulticast, Reliable)
 	void MulticastElim();
@@ -162,6 +166,8 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	USoundBase* ElimBotSound;
+
+	ABlasterPlayerState* BlasterPlayerState;
 
 public:
 	void SetOverlappingWeapon(AWeapon* Weapon);
