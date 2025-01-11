@@ -35,4 +35,7 @@ public:
 
 	UPROPERTY(meta = (BindWidget))
 	UTextBlock* DefeatsAmount;
+
+	UPROPERTY(meta = (BindWidget))
+	UTextBlock* MatchCountDownText;
 };
