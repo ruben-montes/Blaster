@@ -167,6 +167,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	USoundBase* ElimBotSound;
 
+	UPROPERTY()
 	ABlasterPlayerState* BlasterPlayerState;
 
 public:

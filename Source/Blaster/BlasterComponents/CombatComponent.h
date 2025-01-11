@@ -55,8 +55,13 @@ protected:
 	void HandleReload();
 
 private:
+	UPROPERTY()
 	ABlasterCharacter* Character;
+	
+	UPROPERTY()
 	ABlasterPlayerController* Controller;
+
+	UPROPERTY()
 	ABlasterHUD* HUD;
 
 	UPROPERTY(Replicated, ReplicatedUsing=OnRep_EquippedWeapon)
@@ -72,10 +77,8 @@ private:
 	float AimWalkSpeed;
 
 	bool bFireButtonPressed;
-
-	bool CanFire();
-
 	bool bCanFire = true;
+	bool CanFire();
 
 	/**
 	 * HUD and crosshairs
