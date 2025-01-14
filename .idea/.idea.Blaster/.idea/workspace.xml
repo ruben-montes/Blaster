@@ -10,12 +10,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="344799f6-383e-4c34-b242-5d8cb7a0bf24" name="Changes" comment="110. Defeats">
+    <list default="true" id="344799f6-383e-4c34-b242-5d8cb7a0bf24" name="Changes" comment="124. Syncing Client and Server Time2">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/projectSettingsUpdater.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/HUD/WBP_CharacterOverlay.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/HUD/WBP_CharacterOverlay.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Blaster/HUD/CharacterOverlay.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/HUD/CharacterOverlay.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Blaster/PlayerController/BlasterPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/PlayerController/BlasterPlayerController.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/Blaster/PlayerController/BlasterPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/PlayerController/BlasterPlayerController.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Blaster/GameMode/BlasterGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/GameMode/BlasterGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Blaster/GameMode/BlasterGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/GameMode/BlasterGameMode.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,13 +70,18 @@
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/Engine/TimerHandle.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/Character.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/GameMode.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/Pawn.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/PlayerController.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Classes/GameFramework/PlayerState.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Actor.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Brush.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/DefaultPawn.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/GameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Light.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ruben/repos/Blaster/Source/Blaster/PlayerController/BlasterPlayerController.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ruben/repos/Blaster/Source/Blaster/PlayerController/BlasterPlayerController.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/ruben/repos/Blaster/Source/Blaster/PlayerController/BlasterPlayerController.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -562,7 +566,8 @@
       <workItem from="1736358069452" duration="466000" />
       <workItem from="1736358553746" duration="4137000" />
       <workItem from="1736573822034" duration="1563000" />
-      <workItem from="1736575497338" duration="4499000" />
+      <workItem from="1736575497338" duration="5706000" />
+      <workItem from="1736831704505" duration="3348000" />
     </task>
     <task id="LOCAL-00001" summary="63. Rotate Root Bone">
       <option name="closed" value="true" />
@@ -668,7 +673,31 @@
       <option name="project" value="LOCAL" />
       <updated>1736577362022</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="123. Game Timer">
+      <option name="closed" value="true" />
+      <created>1736587958318</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1736587958318</updated>
+    </task>
+    <task id="LOCAL-00015" summary="124. Syncing Client and Server Tim">
+      <option name="closed" value="true" />
+      <created>1736833770913</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1736833770913</updated>
+    </task>
+    <task id="LOCAL-00016" summary="124. Syncing Client and Server Time2">
+      <option name="closed" value="true" />
+      <created>1736833815103</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1736833815103</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -688,7 +717,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="63. Rotate Root Bone" />
     <MESSAGE value="65. Crouch Unequipped" />
@@ -703,6 +731,9 @@
     <MESSAGE value="107. Elim Bot" />
     <MESSAGE value="109. Blaster Player State" />
     <MESSAGE value="110. Defeats" />
-    <option name="LAST_COMMIT_MESSAGE" value="110. Defeats" />
+    <MESSAGE value="123. Game Timer" />
+    <MESSAGE value="124. Syncing Client and Server Tim" />
+    <MESSAGE value="124. Syncing Client and Server Time2" />
+    <option name="LAST_COMMIT_MESSAGE" value="124. Syncing Client and Server Time2" />
   </component>
 </project>
