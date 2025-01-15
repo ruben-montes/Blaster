@@ -10,11 +10,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="344799f6-383e-4c34-b242-5d8cb7a0bf24" name="Changes" comment="124. Syncing Client and Server Time2">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/projectSettingsUpdater.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/projectSettingsUpdater.xml" afterDir="false" />
+    <list default="true" id="344799f6-383e-4c34-b242-5d8cb7a0bf24" name="Changes" comment="125. Match State">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Blaster/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Blaster.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Blaster.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Blaster/GameMode/BlasterGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/GameMode/BlasterGameMode.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/Blaster/GameMode/BlasterGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/GameMode/BlasterGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Blaster/HUD/BlasterHUD.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/HUD/BlasterHUD.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Blaster/HUD/BlasterHUD.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/HUD/BlasterHUD.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Blaster/PlayerController/BlasterPlayerController.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/PlayerController/BlasterPlayerController.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/Blaster/PlayerController/BlasterPlayerController.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/Blaster/PlayerController/BlasterPlayerController.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,9 +83,6 @@
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/DefaultPawn.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/GameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../Program Files/Epic Games/UE_5.4/Engine/Source/Runtime/Engine/Private/Light.cpp" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ruben/repos/Blaster/Source/Blaster/PlayerController/BlasterPlayerController.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ruben/repos/Blaster/Source/Blaster/PlayerController/BlasterPlayerController.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/ruben/repos/Blaster/Source/Blaster/PlayerController/BlasterPlayerController.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -567,7 +568,8 @@
       <workItem from="1736358553746" duration="4137000" />
       <workItem from="1736573822034" duration="1563000" />
       <workItem from="1736575497338" duration="5706000" />
-      <workItem from="1736831704505" duration="3348000" />
+      <workItem from="1736831704505" duration="4068000" />
+      <workItem from="1736979674892" duration="1898000" />
     </task>
     <task id="LOCAL-00001" summary="63. Rotate Root Bone">
       <option name="closed" value="true" />
@@ -697,7 +699,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736833815103</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="125. Match State">
+      <option name="closed" value="true" />
+      <created>1736835142807</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1736835142807</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -734,6 +744,7 @@
     <MESSAGE value="123. Game Timer" />
     <MESSAGE value="124. Syncing Client and Server Tim" />
     <MESSAGE value="124. Syncing Client and Server Time2" />
-    <option name="LAST_COMMIT_MESSAGE" value="124. Syncing Client and Server Time2" />
+    <MESSAGE value="125. Match State" />
+    <option name="LAST_COMMIT_MESSAGE" value="125. Match State" />
   </component>
 </project>
